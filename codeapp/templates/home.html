@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 id="homepage_header">List of recipes</h1>
+
+<div class="card" style="margin-bottom: 10px;">
+  <div class="card-body">
+    
+    <form method="GET">
+      <fieldset class="row g-3">
+          <legend class="border-bottom mb-4">Search for recipes</legend>
+          
+          <!-- searchbar -->
+          <div class="col-md-11">
+            <!-- <label for="title" class="form-label"></label> -->
+            <input type="text" class="form-control" id="title" name="title" placeholder="Search...">
+          </div>
+
+          <!-- Button -->
+          <div class="col-md-1">
+            <button type="submit" class="btn btn-primary">Search</button>
+          </div>
+          
+      </fieldset>
+
+  </form>
+
+  </div>
+</div>
+
+{% for recipe in recipes %}                                                             <!-- Här ska vi ändra till 10 -->
+<!-- here we used the "card" component from bootstrap -->
+<!-- more info here: https://getbootstrap.com/docs/5.1/components/card/ -->
+<div class="card" style="margin-bottom: 10px;">
+    <div class="card-body">
+      <h5 class="card-title">
+          <a href="{{ url_for('bp.detail_recipe', recipe_id=recipe.id) }}">{{ recipe.title }}</a>
+      </h5>
+      <h6 class="card-subtitle mb-2 text-muted">
+          {{ recipe.date_posted.strftime("%Y-%m-%d") }}
+          &bull;
+          {{ recipe.user.name }}
+        </h6>
+      <p class="card-text">{{ recipe.content | safe | striptags | truncate(400) }}</p>
+    </div>
+  </div>
+{% endfor %}
+
+{% endblock content %}
