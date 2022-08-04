@@ -85,7 +85,7 @@ class RegistrationForm(FlaskForm):
             # you cannot create a second user using it.
             # By raising an error, the message is shown to the user.
             raise ValidationError(
-                "This email is already registered. " "Please choose a different one."
+                "This email is already registered. Please choose a different one."
             )
 
 
