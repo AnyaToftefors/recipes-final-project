@@ -41,10 +41,7 @@ class User(UserMixin):
         init=False,
         metadata={"sa": Column(Integer(), primary_key=True, autoincrement=True)},
     )
-    name: str = field(
-        repr=False,
-        metadata={"sa": Column(String(128), nullable=False)},
-    )
+    name: str = field(repr=False, metadata={"sa": Column(String(128), nullable=False)})
     email: str = field(
         metadata={"sa": Column(String(128), unique=True, nullable=False)}
     )
