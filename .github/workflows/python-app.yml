@@ -29,8 +29,8 @@ jobs:
       run: pylint ./codeapp
     - name: Lint with Black
       run: black . --check
-    #- name: Validating type hints with mypy
-    #  run: mypy .
+    - name: Validating type hints with mypy
+      run: mypy .
     - name: Check import sorting with isort
       run: isort . --check-only --diff
     - name: Running tests and evaluating code coverage for the unitary tests
