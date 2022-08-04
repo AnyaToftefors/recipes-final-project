@@ -64,19 +64,19 @@ class TestFunctional(FunctionalTestCase):
         # introduce, execute, wait
         logger.info("John fills in the information.")
 
-        name_field = self.browser.find_element_by_name("name")
+        name_field = self.browser.find_element("name")
         name_field.send_keys("New Functional Test User")
         self.sleep()
 
-        email_field = self.browser.find_element_by_name("email")
+        email_field = self.browser.find_element("name", "email")
         email_field.send_keys("newfunctional@chalmers.se")
         self.sleep()
 
-        password_field = self.browser.find_element_by_name("password")
+        password_field = self.browser.find_element("name", "password")
         password_field.send_keys("functionalpass")
         self.sleep()
 
-        confirm_field = self.browser.find_element_by_name("confirm_password")
+        confirm_field = self.browser.find_element("name", "confirm_password")
         confirm_field.send_keys("functionalpass")
         self.sleep()
 
@@ -106,15 +106,15 @@ class TestFunctional(FunctionalTestCase):
 
         # introduce, execute, wait
         logger.info("John fills in the email and password registered before.")
-        email_field = self.browser.find_element_by_name("email")
+        email_field = self.browser.find_element("name", "email")
         email_field.send_keys("newfunctional@chalmers.se")
         self.sleep()
 
-        password_field = self.browser.find_element_by_name("password")
+        password_field = self.browser.find_element("name", "password")
         password_field.send_keys("functionalpass")
         self.sleep()
 
-        remember_field = self.browser.find_element_by_name("remember")
+        remember_field = self.browser.find_element("name", "remember")
         remember_field.click()
         self.sleep()
 
@@ -164,7 +164,7 @@ class TestFunctional(FunctionalTestCase):
 
         # introduce, execute, wait
         self.assertIn("Update profile", self.browser.page_source)
-        name_field = self.browser.find_element_by_name("name")
+        name_field = self.browser.find_element("name", "name")
         self.sleep()
         name_field.clear()
         self.sleep()
