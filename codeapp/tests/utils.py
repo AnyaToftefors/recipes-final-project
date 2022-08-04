@@ -217,10 +217,10 @@ class FunctionalTestCase(LiveTestCase):
         while True:
             try:
                 if _id is not None:
-                    self.browser.find_element_by_id(_id)
+                    self.browser.find_element("id", _id)
                     return
                 if name is not None:
-                    self.browser.find_element_by_name(name)
+                    self.browser.find_element("name", name)
                     return
             except (AssertionError, WebDriverException) as e:
                 if time.time() - start_time > max_wait:
