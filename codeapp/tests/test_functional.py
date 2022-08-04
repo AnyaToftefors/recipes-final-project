@@ -56,7 +56,7 @@ class TestFunctional(FunctionalTestCase):
         # introduce, execute, wait
         logger.info("John clicks on the `Register` link.")
         self.browser.get(self.get_server_url())
-        register_link = self.browser.find_element_by_id("register")
+        register_link = self.browser.find_element("id", "register")
         register_link.click()
         self.wait_for_system(_id="register_form")
         self.wait()
@@ -101,7 +101,7 @@ class TestFunctional(FunctionalTestCase):
         # introduce, execute, wait
         logger.info("John opens the log in page.")
         self.browser.get(self.get_server_url())
-        register_link = self.browser.find_element_by_id("login")
+        register_link = self.browser.find_element("id", "login")
         register_link.click()
 
         # introduce, execute, wait
@@ -142,7 +142,7 @@ class TestFunctional(FunctionalTestCase):
 
         # introduce, execute, wait
         logger.info("John clicks in the `Profile` link")
-        register_link = self.browser.find_element_by_id("profile")
+        register_link = self.browser.find_element("id", "profile")
         register_link.click()
         self.wait_for_system(_id="profile_header")
 
@@ -158,7 +158,7 @@ class TestFunctional(FunctionalTestCase):
 
         # introduce, execute, wait
         logger.info("John clicks on the `update_profile` button.")
-        update_link = self.browser.find_element_by_id("update_profile")
+        update_link = self.browser.find_element("id", "update_profile")
         update_link.click()
         self.wait_for_system(_id="profile_form")
 
@@ -188,7 +188,7 @@ class TestFunctional(FunctionalTestCase):
         logger.info("John wants to log out.")
 
         # introduce, execute, wait
-        logout_link = self.browser.find_element_by_id("logout")
+        logout_link = self.browser.find_element("id", "logout")
         logout_link.click()
         self.sleep()
         self.wait_for_system(_id="form_login")
